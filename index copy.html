@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --bg-stem: rgb(9, 124, 9);
+            --bg-thorn: rgb(0, 94, 5);
+            --bg-leaf: rgb(42, 143, 42);
+
+
+
+            --petal-hue: 5;
+            --petal-saturation: 100%;
+            --petal-lightness: 50%;
+
+            --rose-height: 570px;
+            --petals-height: 110px;
+            /* --stem-height: calc(var(--rose-height) - var(--petals-height)); */
+        }
+        body{
+            margin:0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .rose{
+            background: grey;
+            height: var(--rose-height);
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            justify-content: flex-end;
+            /* pointer-events: none; */
+        }
+
+
+        
+        .rose__petals{
+            /* background: black; */
+            /* width: 100px;
+            height: var(--petals-height); */
+            position: relative;
+            z-index: 2;
+        }
+
+        .rose__petal{
+            background: hsl(var(--petal-hue), var(--petal-saturation), var(--petal-lightness));
+            width: 60%;
+            height: 90%;
+            /*border-...-radius: [horizontal] [vertical]; */
+            
+            position: absolute;
+            bottom: 0;
+            
+        }
+        
+        .petal--inner{
+            top:0;
+        }
+        .petal--right{
+            right: 0;
+            transform:rotate(-20deg);
+            border-top-left-radius: 95% 70%;
+            border-top-right-radius: 5% 50%;
+            border-bottom-right-radius: 50% 50%;
+            border-bottom-left-radius: 50% 30%;
+        }
+        .petal--left{
+            transform: rotate(20deg);
+            border-top-right-radius: 95% 70%;
+            border-top-left-radius: 5% 50%;
+            border-bottom-left-radius: 50% 50%;
+            border-bottom-right-radius: 50% 30%;
+      
+            /* opacity: 0.8; */
+        }
+
+        .petal--left.petal--inner{
+            --petal-lightness: 27%;
+            left: 20%;
+        }
+        .petal--right.petal--inner{
+            right: 20%;
+            --petal-lightness: 30%;
+        }
+        .petal--left.petal--outer{
+            --petal-lightness: 33%;
+        }
+        .petal--right.petal--outer{
+            /* background: rgb(216, 0, 0); */
+            --petal-lightness: 35%;
+        }
+        
+        
+
+
+        .rose__stem-container{
+            background: orange;
+            display: flex;
+            position: relative;
+            justify-content: center;
+            /* flex-grow: 1; */
+            height: 100px;
+        }
+        .rose__stem{
+            background: var(--bg-stem);
+            /* height: 60vh; */
+            
+            width: 10px;
+            border-radius: 50px;
+        }
+        .rose__thorn-container{
+            
+            width: 15px;
+            /* background: blue; */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .thorn-container--left{
+            align-items: flex-end;
+            /* padding-top: 100px; */
+            
+        }
+        .thorn-container--right{
+            /* padding-bottom: 100px; */
+        }
+        .thorns{
+            background: black;
+            position: absolute;
+            width: 0;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 100% ;
+            
+        }
+        .thorn{
+            border: 0px solid rgba(0,0,0,0);
+            width: 0;
+            height: 0;
+            /* margin-top: 5px; */
+        }
+        .thorn--left{
+            border-right-color: var(--bg-thorn);
+            transform: translateX(-20px);
+        }
+        .thorn--right{
+            border-left-color: var(--bg-thorn);
+            transform: translate(20px);
+        }
+
+
+        .leaf{
+            /* background: black; */
+            position: absolute;
+        }
+
+        .leaf__petiole{
+            position: absolute;
+            /* background: black; */
+            top: 70px;
+            width: 150px;
+            height: 60px;
+            border-radius: 100%;
+            border: 8px solid transparent;
+            border-top-color: var(--bg-stem);    
+        }
+        .leaf__petiole.petiole--left{
+            right: -20px;
+            border-left-width: 0;
+            border-right-width: 10px;
+            transform: rotate(40deg);
+        }
+        .leaf__petiole.petiole--right{
+            left: -20px;
+            transform: rotate(-40deg)
+        }
+
+        .leaf__blade{
+            /* position: absolute; */
+            background: var(--bg-leaf);
+            
+            
+            
+            width: 100px;
+            height:100px;
+            z-index: 1;
+            
+
+        }
+        .leaf__blade.blade--left{
+            margin-right: 40px;
+            transform: rotate(-10deg);
+            border-top-right-radius: 100% ;
+            border-bottom-left-radius: 100%;
+            border: 0px solid var(--bg-leaf);
+            /* border-bottom-width: 10px; */
+            border-left-width: 50px;
+            border-top-width: 1px;
+            border-top-left-radius: 80% 20px;
+        }
+        .leaf__blade.blade--right{
+            margin-left: 40px;
+            transform: rotate(20deg);
+            border-top-left-radius: 100%;
+            border-bottom-right-radius: 100%;
+        }
+
+        .code{
+            background: rgb(226, 207, 143);
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            word-break: break-all; /*IE Fallback*/
+            word-break: break-word;
+            opacity: .2;
+            font-size: 3rem;
+            overflow-y: scroll;
+            
+        }
+
+        .sepals{
+            background: blue;
+            width: 10px;
+            height: 20px;
+            z-index: 1;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+        }
+        .hip{
+            background: var(--bg-stem);
+            width: 20px;
+            height: 40px;
+            flex-shrink: 0;
+            border-bottom-left-radius: 50% 100%;
+            border-bottom-right-radius: 50% 100%;
+        }
+    </style>
+</head>
+<body>
+
+
+
+                
+
+
+        <code class="code">
+
+        </code>
+
+
+    <div class="rose">
+        <div class="rose__petals">
+            <div class="rose__petal petal--left petal--inner"></div>
+            <div class="rose__petal petal--right petal--inner" ></div>
+            <div class="rose__petal petal--left petal--outer"></div>
+            <div class="rose__petal petal--right petal--outer" ></div>
+            
+        </div>
+        
+        <div class="rose__stem-container">
+            <div class="sepals">
+                <div class="hip"></div>
+            </div>
+            <div class="thorns">
+                <div class="thorn thorn--left"></div>
+                <div class="thorn thorn--right"></div>
+                <div class="thorn thorn--left"></div>
+                <div class="thorn thorn--right"></div>
+                <div class="thorn thorn--left"></div>
+                <div class="thorn thorn--right"></div>
+            </div>
+            <div class="rose__thorn-container thorn-container--left">
+                
+
+
+                <div class="leaf leaf--left">
+                    <div class="leaf__blade blade--left"></div>
+                    <div class="leaf__petiole petiole--left"></div>
+                    
+                </div>
+            </div>
+            <div class="rose__stem"></div>
+
+            <div class="rose__thorn-container thorn-container--right">
+
+
+                <div class="leaf leaf--right">
+                    <div class="leaf__blade blade--right"></div>
+                    <div class="leaf__petiole petiole--right"></div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>

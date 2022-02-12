@@ -1,0 +1,112 @@
+
+$bg-stem: rgb(9, 124, 9);
+$bg-thorn: rgb(0, 94, 5);
+$bg-leaf: rgb(42, 143, 42);
+
+$bg-petal: red;
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+rose{
+    // background: red;
+    width: 100px;
+    height: 500px;
+    display: block;
+    position: relative;
+}
+t{
+    position: absolute;
+    width: 60px;
+    height: 100px;
+}
+
+t.r{
+    background: yellow;
+    right: 0;
+    border-top-left-radius: 95% 70%;
+    border-top-right-radius: 5% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 30%;
+}
+t.l{
+    background: orange;
+    border-top-right-radius: 95% 70%;
+    border-top-left-radius: 5% 50%;
+    border-bottom-left-radius: 50% 50%;
+    border-bottom-right-radius: 50% 30%;
+}
+t.o{
+    top: 10px;
+}
+t.i.l{
+    background: blue;
+    left: 20px;
+}
+t.i.r{
+    background: black;
+    right: 20px;
+}
+
+s{
+    height: 400px;
+    width: 10px;
+    background: green;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+d{
+    /* background: orange; */
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    display: block;
+}
+d:nth-child(even){
+    border-left-color: blue;
+    margin-left: 10px;
+    
+}
+d:nth-child(odd){
+    border-right-color: orange;
+    margin-left: -30px;
+}
+l{
+    width: 200px;
+    height: 100px;
+    // background: brown;
+    display: block;
+    position: absolute;
+    border-radius: 100%;
+    border: 0 solid rgba(0,0,0,0);
+    border-width: 5px 0 0 15px;
+    border-top-color: green;
+    transform: rotate(-30deg) translateX(-31px);
+
+}
+l.l2{
+    transform: translateX(-178px) scaleX(-1) rotate(-50deg);
+}
+
+.leaf{
+    width: 120px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    border-radius: 100% 0;
+    border-top-right-radius: 30%;
+    border-top: 20px solid red;
+    transform: translate(65px, -35px) rotate(35deg) ;
+    // right: 0;
+}
+.leaf2{
+    transform: translate(-170px, 50px) scaleX(-1) rotate(40deg) ;
+}

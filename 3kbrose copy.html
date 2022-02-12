@@ -1,16 +1,13 @@
-body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-rose {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        rose {
+  background: red;
   width: 100px;
   height: 500px;
   display: block;
@@ -57,7 +54,7 @@ t.i.r {
 s {
   height: 400px;
   width: 10px;
-  background: green;
+  background: black;
   display: block;
   position: absolute;
   bottom: 0;
@@ -91,39 +88,20 @@ d:nth-child(odd) {
   border-right-color: orange;
   margin-left: -30px;
 }
-
-l {
-  width: 200px;
-  height: 100px;
-  display: block;
-  position: absolute;
-  border-radius: 100%;
-  border: 0 solid rgba(0, 0, 0, 0);
-  border-width: 5px 0 0 15px;
-  border-top-color: green;
-  -webkit-transform: rotate(-30deg) translateX(-31px);
-          transform: rotate(-30deg) translateX(-31px);
-}
-
-l.l2 {
-  -webkit-transform: translateX(-178px) scaleX(-1) rotate(-50deg);
-          transform: translateX(-178px) scaleX(-1) rotate(-50deg);
-}
-
-.leaf {
-  width: 120px;
-  height: 100px;
-  background: red;
-  position: absolute;
-  border-radius: 100% 0;
-  border-top-right-radius: 30%;
-  border-top: 20px solid red;
-  -webkit-transform: translate(65px, -35px) rotate(35deg);
-          transform: translate(65px, -35px) rotate(35deg);
-}
-
-.leaf2 {
-  -webkit-transform: translate(-170px, 50px) scaleX(-1) rotate(40deg);
-          transform: translate(-170px, 50px) scaleX(-1) rotate(40deg);
-}
 /*# sourceMappingURL=style.css.map */
+    </style>
+</head>
+<body>
+    <rose>
+        <s></s>
+        <t class="i r"></t>
+        <t class="i l"></t>
+        <t class="o l"></t>
+        <t class="o r"></t>
+        <l></l>
+        
+        
+
+    </rose>
+</body>
+</html>
